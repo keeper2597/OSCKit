@@ -283,7 +283,8 @@ public class OSCServer: NSObject, GCDAsyncSocketDelegate, GCDAsyncUdpSocketDeleg
             let newData = data as NSData
             debugPrint("UDP Socket: \(sock) didReceiveData of Length: \(newData.length), fromAddress \(address)")
         #endif
-        print("UDP Socket: \(sock) didReceiveData of Length: \(newData.length), fromAddress \(address)")
+        let newDat = data as NSData
+        print("UDP Socket: \(sock) didReceiveData of Length: \(newDat.length), fromAddress \(address)")
         
         let rawReplySocket = GCDAsyncUdpSocket(delegate: self, delegateQueue: DispatchQueue.main)
         let socket = Socket(with: rawReplySocket)
