@@ -290,9 +290,13 @@ public class OSCServer: NSObject, GCDAsyncSocketDelegate, GCDAsyncUdpSocketDeleg
         let socket = Socket(with: rawReplySocket)
         socket.host = GCDAsyncUdpSocket.host(fromAddress: address)
         socket.port = self.udpReplyPort
-        guard let packetDestination = delegate else { return }
+        guard let packetDestination = delegate else { 
+            print("No packetDestination")
+            return
+        }
         do {
             try  OSCParser().process(OSCDate: data, for: packetDestination, with: socket)
+            print("handed off to OSCParser")
         } catch OSCParserError.unrecognisedData {
             debugPrint("Error: Unrecognized data \(data)")
         } catch {
