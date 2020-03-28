@@ -152,7 +152,7 @@ public class Socket {
                 #if Socket_Debug
                     debugPrint("UDP Socket - Start Listening on Interface: \(aInterface), withPort: \(port)")
                 #endif
-                print("UDP Socket - Start Listening on Interface: \(aInterface), withPort: \(port)")
+                //print("UDP Socket - Start Listening on Interface: \(aInterface), withPort: \(port)")
                 try socket.bind(toPort: port, interface: aInterface)
                 try socket.beginReceiving()
             } else {
